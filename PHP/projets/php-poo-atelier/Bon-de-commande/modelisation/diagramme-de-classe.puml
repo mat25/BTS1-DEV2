@@ -1,0 +1,49 @@
+@startuml
+
+class Entreprise {
+- nomEntreprise : string
+- rueEntreprise : string
+- code-postaleEntreprise : int
+- villeEntreprise : string
+- telephoneEntreprise : string
+- logoEntreprise : string
+}
+
+class Client {
+- numClient : int
+- nomClient : string
+- rueClient : string
+- code-postaleClient : int
+- villeClient : string
+- telephoneClient : string
+}
+
+class Produit {
+- referanceProduit : int
+- nomProduit : string
+- prix-ht : float
+- taux-TVA : float
+- unité : string
+}
+
+class Commande {
+- numCommande : int
+- dateComamnde : DateTime
+- modalitéPaiement : string
+- modePaiement : string
++ ajouterProduit($produit : Produit,quantite : int)
++ editer()
+}
+
+class Contient {
+- quantite : int
+}
+
+
+
+Commande "1..1" --> "0..*" Contient
+Contient "0..*" --> "1..1" Produit
+Commande "1..*" --> "1..1" Client : pour >
+Commande "0..*" --> "1..1" Entreprise : appartient >
+
+@enduml

@@ -8,7 +8,7 @@ require_once '../src/Salarie.php';
 $entreprise = new Entreprise('Entreprise1', 'Rue TEste', 25000, 'Besancon');
 
 $salarie1 = new Salarie('Jean', 'Moulin', $entreprise);
-$salarie2 = new Salarie('adolf', 'toto', $entreprise);
+$salarie2 = new Salarie('tutu', 'toto', $entreprise);
 
 $formation = new Formation('form dev', 2, '10/05/2023', '15/05/2023');
 

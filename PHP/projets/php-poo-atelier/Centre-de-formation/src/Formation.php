@@ -47,12 +47,11 @@ class Formation {
 
     public function noterSalarie(Salarie $salarie, int $note, string $appreciation) {
         foreach ($this->inscriptions as $inscription) {
-            if (
-                $salarie->getNom() == $inscription->getSalarie()->getNom() &&
-                $salarie->getPrenom() == $inscription->getSalarie()->getPrenom()
-            ) {
-                $inscription->setAppreciation($appreciation);
-                $inscription->setNoteSalarie($note);
+            if ( $salarie->getNom() == $inscription->getSalarie()->getNom() && $salarie->getPrenom() == $inscription->getSalarie()->getPrenom() ) {
+                if ($note >= 0 && $note <= 20) {
+                    $inscription->setAppreciation($appreciation);
+                    $inscription->setNoteSalarie($note);
+                }
             }
         }
     }
